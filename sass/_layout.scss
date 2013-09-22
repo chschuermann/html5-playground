@@ -1,0 +1,131 @@
+/* LAYOUT
+##################################################################################################################### */
+
+html, body { height: 100%; }
+
+#toolbar {
+    background: $blue; margin: 0;
+    h1 {
+        color: $white; font-size: 1.4em; margin: 0; padding: .3em 0; text-align: center;
+    }
+    .menu-link {
+        background: url('../img/menu.png'); display: block; width: 25px; height: 23px; margin-top: .5em;
+    }
+}
+
+#map-canvas {
+    width: 100%; height: 100%;
+}
+
+.map-wrapper { width: 100%; height: 100%; }
+
+
+#lookout-list {
+    li {
+        border-bottom: 1px solid $blue; list-style: none; padding: .5em 0;
+        .name { display: block; font-size: .9em; font-weight: bold; line-height: 1.2em; color: $blue; }
+        .distance { display: block; float: right; font-size: .8em; font-weight: bold; color: $grey; }
+    }
+}
+
+.nav {
+    border-bottom: 1px solid $blue; list-style: none; padding: .5em 0;
+    a { display: block; font-size: .9em; font-weight: bold; line-height: 1.2em; color: $blue; }
+}
+
+
+.drawers {
+    position: absolute;
+    .drawer {
+        position: absolute;
+    }
+}
+
+#content {
+    position: absolute; background-color: white;
+    .main-content { overflow: auto; }
+}
+
+
+
+
+.scrollable{
+    overflow: auto;
+    -webkit-transition-property: top, bottom;
+    transition-property: top, bottom;
+    -webkit-transition-duration: .2s, .2s;
+    transition-duration: .2s, .2s;
+    -webkit-transition-timing-function: linear, linear;
+    transition-timing-function: linear, linear;
+    -webkit-overflow-scrolling: touch;
+}
+
+.snapjs-right .left-drawer,
+.snapjs-left .right-drawer {
+    display: none;
+}
+
+.snap-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 2;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.snap-drawers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+}
+
+.snap-drawer {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  width: 265px;
+  height: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: width 0.3s ease;
+     -moz-transition: width 0.3s ease;
+      -ms-transition: width 0.3s ease;
+       -o-transition: width 0.3s ease;
+          transition: width 0.3s ease;
+}
+
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+
+.snap-drawer-right {
+  right: 0;
+  z-index: 1;
+}
+
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+  display: none;
+}
+
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+  width: 100%;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>Aussichtspunkte</title>
+	<!--<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>-->
+	<script src='js/libs/jquery-1.10.2.min.js'></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+
+<body>
+
+    <div class="snap-drawers">
+        <div class="snap-drawer snap-drawer-left">
+            <div><ul id="lookout-list"></ul></div>
+        </div>
+        <div class="snap-drawer snap-drawer-right">
+            <ul class="nav">
+                <li><a href="http://potch.me/labyrinth/">Labyrinth</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content" class="snap-content">
+        <div id="toolbar">
+
+
+            <div class="row">
+                <div class="small-2 columns"><a href="#" id="open-left" class="menu-link"></a></div>
+                <div class="small-8 columns"><h1>Aussichtspunkte</h1></div>
+                <div class="small-2 columns"><a href="#" id="open-right" class="menu-link"></a></div>
+            </div>
+        </div>
+        <div class="map-wrapper">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+
+    <script src="js/libs/modernizr.2.6.2.js"></script>
+    <script src="js/libs/snap.min.js"></script>
+    <script src="js/jquery.geo_lookout.js"></script>
+    <script>
+        var lookoutList;
+        jQuery(document).ready(function() {
+
+            lookoutList = jQuery('#lookout-list').geoLookout({});
+
+            var snapper = new Snap({
+                element: document.getElementById('content'),
+                touchToDrag: false
+            });
+
+            // Trigger
+            var ToggleLeft = $('#open-left');
+            var ToggleRight = $('#open-right');
+
+            // Bind handlers
+            ToggleLeft.on('click', function(e){
+                e.preventDefault();
+                if (snapper.state().state=='left'){
+                    snapper.close();
+                } else {
+                    snapper.open('left');
+                }
+            });
+            ToggleRight.on('click', function(e){
+                e.preventDefault();
+                if (snapper.state().state=='right'){
+                    snapper.close();
+                } else {
+                    snapper.open('right');
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
